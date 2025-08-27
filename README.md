@@ -32,7 +32,7 @@ A personal portfolio showing my projects and skills.
 
 ## 🔗 Live Demo
 
-https://santhoshboppudi.nelify.app/
+https://boppudisanthosh.nelify.app/
 
 ---
 
