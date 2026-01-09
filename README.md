@@ -1,3 +1,6 @@
+# Changelog
+
+- Added favicon (images/loao.png) and updated the title in index.html (2026-01-09)
 # Personal-Portfolio-Website
 
 A personal portfolio showing my projects and skills.
