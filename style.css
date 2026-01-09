@@ -5,6 +5,7 @@
     box-sizing: border-box;
 }
 
+
 html {
     scroll-behavior: smooth;
     font-size: 16px;
@@ -16,7 +17,23 @@ body {
     color: #333;
     background-color: #ffffff;
     overflow-x: hidden;
+    width: 100vw;
+    min-width: 100vw;
     transition: all 0.3s ease;
+}
+
+html {
+    width: 100vw;
+    min-width: 100vw;
+    overflow-x: hidden;
+}
+
+/* Ensure main containers use full width on mobile */
+.main-container, .content, .section, .hero, .skills, .about, .navbar, .nav-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* Dark Theme */
