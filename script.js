@@ -208,7 +208,7 @@ const observer = new IntersectionObserver(function(entries) {
 
 // Animate elements on scroll
 document.addEventListener('DOMContentLoaded', function() {
-    const animateElements = document.querySelectorAll('.project-card, .certificate-card, .timeline-item, .skill-item');
+    const animateElements = document.querySelectorAll('.project-card, .certificate-card, .timeline-item, .skill-category-card, .experience-card');
     
     animateElements.forEach(element => {
         element.style.opacity = '0';
@@ -218,48 +218,56 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Typing animation for hero tagline
-document.addEventListener('DOMContentLoaded', function() {
-    // Typing animation for subtitle
-    const subtitle = document.querySelector('.typing-text');
-    if (subtitle) {
-        const subtitleText = subtitle.textContent;
-        subtitle.textContent = '';
-        
-        let i = 0;
-        const typeSubtitle = () => {
-            if (i < subtitleText.length) {
-                subtitle.textContent += subtitleText.charAt(i);
-                i++;
-                setTimeout(typeSubtitle, 100);
-            } else {
-                // Start tagline typing after subtitle is done
-                setTimeout(startTaglineTyping, 500);
-            }
-        };
-        
-        // Tagline typing animation
-        const startTaglineTyping = () => {
-            const tagline = document.querySelector('.typing-tagline');
-            if (tagline) {
-                const taglineText = tagline.textContent;
-                tagline.textContent = '';
-                
-                let j = 0;
-                const typeTagline = () => {
-                    if (j < taglineText.length) {
-                        tagline.textContent += taglineText.charAt(j);
-                        j++;
-                        setTimeout(typeTagline, 50);
-                    }
-                };
-                typeTagline();
-            }
-        };
-        
-        // Start typing animation after a delay
-        setTimeout(typeSubtitle, 1000);
+// ==========================================
+// Dynamic Multi-Role Typewriter Animation
+// ==========================================
+function initTypewriterEffect() {
+    const textElement = document.getElementById('typing-text');
+    if (!textElement) return;
+
+    const roles = [
+        "AI & Machine Learning Developer",
+        "Python Full-Stack Engineer",
+        "Android (Kotlin) Developer",
+        "Problem Solver & Innovator",
+        "CSE (AIML) Student @ KIET"
+    ];
+
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 80;
+
+    function type() {
+        const currentRole = roles[roleIndex];
+
+        if (isDeleting) {
+            textElement.textContent = currentRole.substring(0, charIndex - 1);
+            charIndex--;
+            typingSpeed = 35;
+        } else {
+            textElement.textContent = currentRole.substring(0, charIndex + 1);
+            charIndex++;
+            typingSpeed = 75;
+        }
+
+        if (!isDeleting && charIndex === currentRole.length) {
+            typingSpeed = 1800; // Pause at end of word
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            typingSpeed = 350; // Pause before next word
+        }
+
+        setTimeout(type, typingSpeed);
     }
+
+    setTimeout(type, 600);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    initTypewriterEffect();
 });
 
 // Project Filter Functionality
@@ -433,8 +441,203 @@ window.addEventListener('scroll', function() {
     }
 });
 
+// ==========================================
+// AI/ML Neural Network Canvas Animation
+// ==========================================
+function initAINeuralAnimation() {
+    const canvas = document.getElementById('ai-neural-canvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let width = 0;
+    let height = 0;
+    let particles = [];
+    let pulses = [];
+    let animationFrameId;
+    let mouse = { x: null, y: null, radius: 160 };
+
+    // Responsive Canvas Resize
+    function resizeCanvas() {
+        const heroSection = canvas.parentElement;
+        if (!heroSection) return;
+        width = canvas.width = heroSection.offsetWidth;
+        height = canvas.height = heroSection.offsetHeight;
+        initParticles();
+    }
+
+    // Node / Neuron
+    class NeuronNode {
+        constructor(x, y) {
+            this.x = x !== undefined ? x : Math.random() * width;
+            this.y = y !== undefined ? y : Math.random() * height;
+            this.vx = (Math.random() - 0.5) * 0.6;
+            this.vy = (Math.random() - 0.5) * 0.6;
+            this.radius = Math.random() * 1.2 + 1.4; // 1.4px - 2.6px (delicate & crisp)
+        }
+
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+
+            // Bounce at edges
+            if (this.x < 0 || this.x > width) this.vx *= -1;
+            if (this.y < 0 || this.y > height) this.vy *= -1;
+
+            // Mouse interaction
+            if (mouse.x !== null && mouse.y !== null) {
+                const dx = mouse.x - this.x;
+                const dy = mouse.y - this.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < mouse.radius && dist > 0) {
+                    const force = (mouse.radius - dist) / mouse.radius;
+                    this.x -= (dx / dist) * force * 0.9;
+                    this.y -= (dy / dist) * force * 0.9;
+                }
+            }
+        }
+
+        draw(isDark) {
+            // Core Neuron
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = isDark ? '#38bdf8' : '#2563eb';
+            ctx.fill();
+
+            // Subtle glow
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius * 1.8, 0, Math.PI * 2);
+            ctx.fillStyle = isDark ? 'rgba(56, 189, 248, 0.15)' : 'rgba(37, 99, 235, 0.08)';
+            ctx.fill();
+        }
+    }
+
+    // Firing Data Packet / Synaptic Signal Pulse
+    class SynapticPulse {
+        constructor(fromNode, toNode) {
+            this.from = fromNode;
+            this.to = toNode;
+            this.progress = 0;
+            this.speed = Math.random() * 0.022 + 0.016;
+        }
+
+        update() {
+            this.progress += this.speed;
+            return this.progress >= 1;
+        }
+
+        draw(isDark) {
+            const currentX = this.from.x + (this.to.x - this.from.x) * this.progress;
+            const currentY = this.from.y + (this.to.y - this.from.y) * this.progress;
+
+            ctx.beginPath();
+            ctx.arc(currentX, currentY, 2.2, 0, Math.PI * 2);
+            ctx.fillStyle = isDark ? '#a5f3fc' : '#1d4ed8';
+            ctx.shadowBlur = isDark ? 8 : 4;
+            ctx.shadowColor = isDark ? '#38bdf8' : '#2563eb';
+            ctx.fill();
+            ctx.shadowBlur = 0;
+        }
+    }
+
+    function initParticles() {
+        particles = [];
+        pulses = [];
+        if (width === 0 || height === 0) return;
+        const nodeDensity = Math.min(Math.floor((width * height) / 16000), 55);
+        const count = Math.max(nodeDensity, 25);
+
+        for (let i = 0; i < count; i++) {
+            particles.push(new NeuronNode());
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+        const isDark = document.body.classList.contains('dark-theme');
+        const maxDist = 120;
+
+        // Draw Synapses (Connecting Lines)
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < maxDist) {
+                    const alpha = (1 - dist / maxDist) * (isDark ? 0.28 : 0.16);
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.strokeStyle = isDark 
+                        ? `rgba(56, 189, 248, ${alpha})` 
+                        : `rgba(37, 99, 235, ${alpha})`;
+                    ctx.lineWidth = isDark ? 1 : 0.85;
+                    ctx.stroke();
+
+                    // Randomly trigger synaptic signal pulse
+                    if (Math.random() < 0.0003 && pulses.length < 6) {
+                        pulses.push(new SynapticPulse(particles[i], particles[j]));
+                    }
+                }
+            }
+        }
+
+        // Mouse interaction connections
+        if (mouse.x !== null && mouse.y !== null) {
+            for (let i = 0; i < particles.length; i++) {
+                const dx = mouse.x - particles[i].x;
+                const dy = mouse.y - particles[i].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < mouse.radius) {
+                    const alpha = (1 - dist / mouse.radius) * 0.35;
+                    ctx.beginPath();
+                    ctx.moveTo(mouse.x, mouse.y);
+                    ctx.lineTo(particles[i].x, particles[i].y);
+                    ctx.strokeStyle = isDark ? `rgba(125, 211, 252, ${alpha})` : `rgba(37, 99, 235, ${alpha})`;
+                    ctx.lineWidth = 1.1;
+                    ctx.stroke();
+                }
+            }
+        }
+
+        // Update and draw signal pulses
+        for (let i = pulses.length - 1; i >= 0; i--) {
+            const isDone = pulses[i].update();
+            pulses[i].draw(isDark);
+            if (isDone) pulses.splice(i, 1);
+        }
+
+        // Update and draw neurons
+        for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+            particles[i].draw(isDark);
+        }
+
+        animationFrameId = requestAnimationFrame(animate);
+    }
+
+    // Mouse tracking on Hero section
+    const hero = canvas.parentElement;
+    if (hero) {
+        hero.addEventListener('mousemove', function(e) {
+            const rect = hero.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
+
+        hero.addEventListener('mouseleave', function() {
+            mouse.x = null;
+            mouse.y = null;
+        });
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    animate();
+}
+
 // Initialize all features when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Additional initialization code can go here
-    console.log('Portfolio website loaded successfully!');
+    initAINeuralAnimation();
+    console.log('Portfolio website loaded successfully with AI/ML Neural Mesh!');
 });

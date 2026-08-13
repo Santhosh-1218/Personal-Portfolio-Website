@@ -24,11 +24,6 @@
         </div>
     </div>
 
-    <!-- Theme Toggle -->
-    <div class="theme-toggle" id="theme-toggle">
-        <i class="fas fa-moon"></i>
-    </div>
-
     <!-- Back to Top Button -->
     <div class="back-to-top" id="back-to-top">
         <i class="fas fa-arrow-up"></i>
@@ -38,70 +33,121 @@
     <nav class="navbar" id="navbar" data-aos="fade-down">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="#home">Santhosh</a>
+                <a href="#home">
+                    <span class="logo-accent">&lt;</span>Santhosh<span class="logo-accent">/&gt;</span>
+                </a>
             </div>
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#certificates" class="nav-link">Certificates</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark/Light Theme" title="Toggle Dark/Light Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger" id="hamburger" aria-label="Toggle Menu">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </div>
             </div>
         </div>
     </nav>
     
 
-    <!-- Hero Section -->
+    <!-- Hero Section with AI/ML Neural Network Animation -->
     <section class="hero" id="home">
-        <div class="hero-bg-animation">
-            <div class="floating-shapes">
-                <div class="shape shape-1"></div>
-                <div class="shape shape-2"></div>
-                <div class="shape shape-3"></div>
-                <div class="shape shape-4"></div>
-                <div class="shape shape-5"></div>
-            </div>
-        </div>
+        <canvas id="ai-neural-canvas" class="ai-neural-canvas"></canvas>
         <div class="hero-container">
             <div class="hero-content">
-                <!-- Hero Image - Will be first on mobile -->
-                <div class="hero-image" data-aos="fade-left" data-aos-delay="400">
-                    <div class="profile-placeholder">
-                        <div class="profile-glow"></div>
-                        <img src="/images/1728108642903.jpg" alt="Boppudi Santhosh Profile Photo" class="profile-photo">
-                    </div>
-                </div>
-                
-                <!-- Hero Text - Will be second on mobile -->
+                <!-- Hero Text -->
                 <div class="hero-text" data-aos="fade-right" data-aos-delay="200">
+                    <div class="hero-badge">
+                        <span class="pulse-dot"></span>
+                        <span>AI & Full-Stack Developer</span>
+                    </div>
+
                     <h1 class="hero-title">
-                        Hi, I'm <span class="highlight">Boppudi Santhosh</span>
+                        Hi, I'm <span class="highlight-gradient">Boppudi Santhosh</span>
                     </h1>
-                    <p class="hero-subtitle typing-text">CSE (AIML) Student at KIET College, Kakinada | Python Developer | Full-Stack | Android Kotlin</p>
-                    <p class="hero-tagline typing-tagline">"Building intelligent solutions with code & creativity"</p>
+
+                    <div class="hero-typing-wrapper">
+                        <span class="typing-prefix">I am a </span>
+                        <span class="typing-dynamic-text" id="typing-text">AI & Machine Learning Developer</span>
+                        <span class="typing-cursor">|</span>
+                    </div>
+
+                    <p class="hero-subtitle">
+                        CSE (AI & ML) Student at <strong>KIET Group of Institutions</strong> & Software Engineer at <strong>Work Wizards Innovations</strong>.
+                    </p>
+
+                    <p class="hero-tagline">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <span>Building intelligent solutions with code & creativity</span>
+                    </p>
+
+                    <div class="hero-tech-chips">
+                        <span class="hero-chip"><i class="fab fa-python"></i> Python</span>
+                        <span class="hero-chip"><i class="fas fa-brain"></i> AI & ML</span>
+                        <span class="hero-chip"><i class="fab fa-react"></i> React.js</span>
+                        <span class="hero-chip"><i class="fab fa-android"></i> Android Kotlin</span>
+                        <span class="hero-chip"><i class="fas fa-database"></i> MongoDB</span>
+                    </div>
+
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Get In Touch
+                        </a>
+                        <a href="#experience" class="btn btn-secondary">
+                            <i class="fas fa-briefcase"></i> Experience
+                        </a>
+                        <a href="#projects" class="btn btn-outline">
+                            <i class="fas fa-code"></i> Projects
+                        </a>
+                    </div>
 
                     <div class="social-links">
-                        <a href="https://www.instagram.com/so__in_1_4_3" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/share/1BsnmFLwC3/" target="_blank" class="social-link"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.linkedin.com/in/boppudi-santhosh-332b71329" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/Santhosh-1218" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="https://x.com/so__in_1_4_3" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/boppudi-santhosh-332b71329" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/Santhosh-1218" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://x.com/so__in_1_4_3" target="_blank" rel="noopener noreferrer" class="social-link" title="Twitter / X"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/so__in_1_4_3" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/1BsnmFLwC3/" target="_blank" rel="noopener noreferrer" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                     </div>
-                    <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                        <a href="#projects" class="btn btn-secondary">View Projects</a>
+                </div>
+
+                <!-- Hero Image Card -->
+                <div class="hero-image" data-aos="fade-left" data-aos-delay="400">
+                    <div class="profile-card-wrapper">
+                        <div class="profile-ring-glow"></div>
+                        <div class="profile-frame">
+                            <img src="images/1728108642903.jpg" alt="Boppudi Santhosh Profile Photo" class="profile-photo">
+                        </div>
+                        <!-- Floating Tech Skill Badges -->
+                        <div class="floating-badge badge-top-right">
+                            <i class="fas fa-robot"></i>
+                            <span>AI / ML</span>
+                        </div>
+                        <div class="floating-badge badge-bottom-left">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="floating-badge badge-bottom-right">
+                            <i class="fas fa-code"></i>
+                            <span>Full-Stack</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
+
+        <a href="#about" class="scroll-indicator" aria-label="Scroll to About">
+            <span class="scroll-text">Scroll Down</span>
             <div class="scroll-arrow">
                 <i class="fas fa-chevron-down"></i>
             </div>
-        </div>
+        </a>
     </section>
 
     <!-- About -->
@@ -127,33 +173,53 @@
                 <div class="about-details">
                     <!-- Education Section -->
                     <div class="education" data-aos="fade-right" data-aos-delay="300">
-                        <h3>Education Timeline</h3>
+                        <div class="subsection-header">
+                            <div class="sub-icon-box">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="sub-title-box">
+                                <h3>Education</h3>
+                                <p>Academic background &amp; qualifications</p>
+                            </div>
+                        </div>
                         <div class="timeline">
                             <div class="timeline-item">
-                                <div class="timeline-marker"></div>
+                                <div class="timeline-marker">
+                                    <div class="marker-dot"></div>
+                                </div>
                                 <div class="timeline-content">
-                                    <h4>B.Tech CSE (AIML)</h4>
-                                    <p class="timeline-period">2024 – 2028</p>
-                                    <p class="timeline-institution">KIET Group of Institutions</p>
-                                    <p class="timeline-grade">2nd Year SGPA: 80%</p>
+                                    <div class="timeline-header-row">
+                                        <h4>B.Tech CSE (AI &amp; ML)</h4>
+                                        <span class="timeline-grade">CGPA: 7.5</span>
+                                    </div>
+                                    <p class="timeline-institution"><i class="fas fa-building-columns"></i> KIET Group of Institutions, Kakinada</p>
+                                    <span class="timeline-period"><i class="far fa-calendar-alt"></i> 2024 – 2028</span>
                                 </div>
                             </div>
                             <div class="timeline-item">
-                                <div class="timeline-marker"></div>
+                                <div class="timeline-marker">
+                                    <div class="marker-dot"></div>
+                                </div>
                                 <div class="timeline-content">
-                                    <h4>Intermediate MPC</h4>
-                                    <p class="timeline-period">2022 – 2024</p>
-                                    <p class="timeline-institution">Sri Chaitanya Jr. College</p>
-                                    <p class="timeline-grade">89.6%</p>
+                                    <div class="timeline-header-row">
+                                        <h4>Intermediate MPC</h4>
+                                        <span class="timeline-grade">89.6%</span>
+                                    </div>
+                                    <p class="timeline-institution"><i class="fas fa-building-columns"></i> Sri Chaitanya Jr. College</p>
+                                    <span class="timeline-period"><i class="far fa-calendar-alt"></i> 2022 – 2024</span>
                                 </div>
                             </div>
                             <div class="timeline-item">
-                                <div class="timeline-marker"></div>
+                                <div class="timeline-marker">
+                                    <div class="marker-dot"></div>
+                                </div>
                                 <div class="timeline-content">
-                                    <h4>SSC (10th Class)</h4>
-                                    <p class="timeline-period">2022</p>
-                                    <p class="timeline-institution">Pragathi Niketan School</p>
-                                    <p class="timeline-grade">72.33%</p>
+                                    <div class="timeline-header-row">
+                                        <h4>SSC (10th Class)</h4>
+                                        <span class="timeline-grade">72.33%</span>
+                                    </div>
+                                    <p class="timeline-institution"><i class="fas fa-building-columns"></i> Pragathi Niketan School</p>
+                                    <span class="timeline-period"><i class="far fa-calendar-alt"></i> 2022</span>
                                 </div>
                             </div>
                         </div>
@@ -161,64 +227,257 @@
 
                     <!-- Skills Section -->
                     <div class="skills" data-aos="fade-left" data-aos-delay="400">
-                        <h3>Skills</h3>
-                        <div class="skills-grid">
-                            <div class="skill-item">
-                                <i class="fab fa-figma"></i>
-                                <span class="skill-name">Figma</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fab fa-html5"></i>
-                                <span class="skill-name">HTML</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fab fa-css3-alt"></i>
-                                <span class="skill-name">CSS</span>
-                            </div>
-                            <div class="skill-item">
-                                <i class="fab fa-js-square"></i>
-                                <span class="skill-name">JavaScript</span>
-                            </div>
-                            <div class="skill-item">
+                        <div class="subsection-header">
+                            <div class="sub-icon-box">
                                 <i class="fas fa-code"></i>
-                                <span class="skill-name">C Programming</span>
                             </div>
-                            <div class="skill-item">
-                                <i class="fa-brands fa-firefox-browser" style="color:#FFCA28;font-size:40px;"></i>
-                                <span class="skill-name">Firebase</span>
+                            <div class="sub-title-box">
+                                <h3>Skills &amp; Expertise</h3>
+                                <p>Technical proficiencies &amp; toolsets</p>
                             </div>
-                            <div class="skill-item">
-                                <i class="fab fa-python"></i>
-                                <span class="skill-name">Python</span>
+                        </div>
+                        <div class="skill-categories">
+                            <!-- Category 1: Programming Languages -->
+                            <div class="skill-category-card">
+                                <div class="category-title">
+                                    <i class="fas fa-laptop-code"></i>
+                                    <h4>Programming Languages</h4>
+                                </div>
+                                <div class="skill-chips">
+                                    <div class="skill-chip">
+                                        <i class="fab fa-python"></i>
+                                        <span>Python</span>
+                                    </div>
+                                    <div class="skill-chip">
+                                        <i class="fas fa-code"></i>
+                                        <span>Kotlin</span>
+                                    </div>
+                                    <div class="skill-chip">
+                                        <i class="fab fa-js"></i>
+                                        <span>JavaScript</span>
+                                    </div>
+                                    <div class="skill-chip">
+                                        <i class="fas fa-terminal"></i>
+                                        <span>C</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="skill-item">
-                                <i class="fas fa-flask"></i>
-                                <span class="skill-name">Flask</span>
+
+                            <!-- Category 2: Android Development -->
+                            <div class="skill-category-card">
+                                <div class="category-title">
+                                    <i class="fas fa-mobile-screen-button"></i>
+                                    <h4>Android Development</h4>
+                                </div>
+                                <div class="skill-chips">
+                                    <div class="skill-chip">
+                                        <i class="fab fa-android"></i>
+                                        <span>Android Studio</span>
+                                    </div>
+                                    <div class="skill-chip">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        <span>Kotlin</span>
+                                    </div>
+                                    <div class="skill-chip">
+                                        <i class="fas fa-file-code"></i>
+                                        <span>XML</span>
+                                    </div>
+                                </div>
                             </div>
-                            
-                              <div class="skill-item">
-                            <i class="fa-solid fa-leaf" style="color:#47A248;font-size:40px;"></i>
-                            <span class="skill-name">MongoDB</span>
+
+                            <!-- Category 3: Web Development -->
+                            <div class="skill-category-card">
+                                <div class="category-title">
+                                    <i class="fas fa-globe"></i>
+                                    <h4>Web Development</h4>
+                                </div>
+                                <div class="skill-chips">
+                                    <div class="skill-chip">
+                                        <i class="fab fa-html5"></i>
+                                        <span>HTML</span>
+                                    </div>
+                                    <div class="skill-chip">
+                                        <i class="fab fa-css3-alt"></i>
+                                        <span>CSS</span>
+                                    </div>
+                                    <div class="skill-chip">
+                                        <i class="fab fa-react"></i>
+                                        <span>React.js</span>
+                                    </div>
+                                    <div class="skill-chip">
+                                        <i class="fas fa-flask"></i>
+                                        <span>Flask</span>
+                                    </div>
+                                </div>
                             </div>
-                             <div class="skill-item">
-                                <i class="fab fa-react" style="color:#61DAFB;"></i>
-                                <span class="skill-name">React JS</span>
+
+                            <!-- Category 4: Databases -->
+                            <div class="skill-category-card">
+                                <div class="category-title">
+                                    <i class="fas fa-database"></i>
+                                    <h4>Databases</h4>
+                                </div>
+                                <div class="skill-chips">
+                                    <div class="skill-chip">
+                                        <i class="fas fa-leaf"></i>
+                                        <span>MongoDB</span>
+                                    </div>
+                                    <div class="skill-chip">
+                                        <i class="fas fa-fire"></i>
+                                        <span>Firebase</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="skill-item">
-                                <i class="fab fa-node-js" style="color:#3C873A;"></i>
-                                <span class="skill-name">Node JS</span>
+
+                            <!-- Category 5: Tools -->
+                            <div class="skill-category-card">
+                                <div class="category-title">
+                                    <i class="fas fa-toolbox"></i>
+                                    <h4>Tools &amp; Platforms</h4>
+                                </div>
+                                <div class="skill-chips">
+                                    <div class="skill-chip">
+                                        <i class="fab fa-git-alt"></i>
+                                        <span>Git</span>
+                                    </div>
+                                    <div class="skill-chip">
+                                        <i class="fab fa-github"></i>
+                                        <span>GitHub</span>
+                                    </div>
+                                    <div class="skill-chip">
+                                        <i class="fas fa-network-wired"></i>
+                                        <span>REST APIs</span>
+                                    </div>
+                                    <div class="skill-chip">
+                                        <i class="fas fa-file-excel"></i>
+                                        <span>OpenPyXL</span>
+                                    </div>
+                                    <div class="skill-chip">
+                                        <i class="fab fa-figma"></i>
+                                        <span>Figma</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="skill-item">
-                                <i class="fas fa-server" style="color:#000;"></i>
-                                <span class="skill-name">Express JS</span>
+
+                            <!-- Category 6: Core CS -->
+                            <div class="skill-category-card">
+                                <div class="category-title">
+                                    <i class="fas fa-microchip"></i>
+                                    <h4>Core CS</h4>
+                                </div>
+                                <div class="skill-chips">
+                                    <div class="skill-chip">
+                                        <i class="fas fa-project-diagram"></i>
+                                        <span>Data Structures &amp; Algorithms</span>
+                                    </div>
+                                    <div class="skill-chip">
+                                        <i class="fas fa-cubes"></i>
+                                        <span>OOP</span>
+                                    </div>
+                                    <div class="skill-chip">
+                                        <i class="fas fa-brain"></i>
+                                        <span>Problem Solving</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="skill-item">
-                                <i class="fab fa-android" style="color:#3DDC84;"></i>
-                                <span class="skill-name">Android Studio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Experience</h2>
+                <p class="section-subtitle">Professional experience and software development journey</p>
+            </div>
+
+            <div class="experience-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="experience-timeline">
+                    <div class="timeline-track">
+                        <div class="timeline-node-marker">
+                            <div class="marker-circle">
+                                <i class="fas fa-briefcase"></i>
                             </div>
-                            <div class="skill-item">
-                                <i class="fas fa-mobile-alt" style="color:#7F52FF;"></i>
-                                <span class="skill-name">Kotlin</span>
+                            <div class="marker-stem"></div>
+                        </div>
+                    </div>
+
+                    <div class="experience-card">
+                        <div class="exp-header">
+                            <div class="exp-brand">
+                                <a href="https://wwi.org.in/" target="_blank" rel="noopener noreferrer" class="exp-company-logo" title="Visit Work Wizards Innovations (wwi.org.in)">
+                                    <img src="images/wwi-logo.png" alt="Work Wizards Innovations Logo" class="company-logo-img">
+                                </a>
+                                <div class="exp-title-info">
+                                    <div class="exp-company-row">
+                                        <h3 class="exp-company-name">Work Wizards Innovations</h3>
+                                        <a href="https://wwi.org.in/" target="_blank" rel="noopener noreferrer" class="company-site-link">
+                                            <span>wwi.org.in</span>
+                                            <i class="fas fa-arrow-up-right-from-square"></i>
+                                        </a>
+                                    </div>
+                                    <h4 class="exp-role">Software Engineer</h4>
+                                </div>
+                            </div>
+                            <div class="exp-meta-badges">
+                                <span class="exp-period-badge">
+                                    <span class="live-dot"></span>
+                                    <i class="far fa-calendar-alt"></i> 2025 – Present
+                                </span>
+                            </div>
+                        </div>
+
+                        <p class="exp-summary">
+                            Developed and maintained full-stack web applications using React, Python, Flask, and MongoDB.
+                        </p>
+
+                        <div class="exp-body-grid">
+                            <div class="exp-col-responsibilities">
+                                <h5 class="exp-subheading">
+                                    <i class="fas fa-list-check"></i> Key Responsibilities
+                                </h5>
+                                <ul class="responsibilities-list">
+                                    <li>
+                                        <i class="fas fa-circle-check"></i>
+                                        <span>Developed and maintained full-stack web applications using React, Python, Flask, and MongoDB.</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-circle-check"></i>
+                                        <span>Designed and implemented REST APIs, authentication systems, and database integrations.</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-circle-check"></i>
+                                        <span>Built responsive, user-friendly interfaces and optimized application performance.</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-circle-check"></i>
+                                        <span>Collaborated with team members to develop, test, deploy, and maintain production-ready software.</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-circle-check"></i>
+                                        <span>Fixed bugs, implemented new features, and contributed throughout the software development lifecycle.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="exp-col-tech">
+                                <h5 class="exp-subheading">
+                                    <i class="fas fa-layer-group"></i> Technologies
+                                </h5>
+                                <div class="exp-tech-chips">
+                                    <div class="tech-chip"><i class="fab fa-react"></i><span>React.js</span></div>
+                                    <div class="tech-chip"><i class="fab fa-python"></i><span>Python</span></div>
+                                    <div class="tech-chip"><i class="fas fa-flask"></i><span>Flask</span></div>
+                                    <div class="tech-chip"><i class="fas fa-leaf"></i><span>MongoDB</span></div>
+                                    <div class="tech-chip"><i class="fas fa-network-wired"></i><span>REST APIs</span></div>
+                                    <div class="tech-chip"><i class="fas fa-shield-halved"></i><span>Authentication</span></div>
+                                    <div class="tech-chip"><i class="fab fa-github"></i><span>Git/GitHub</span></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -453,8 +712,8 @@
                 <p>&copy; 2025 Boppudi Santhosh | All Rights Reserved</p>
                 <div class="footer-links">
                     <a href="#home">Home</a>
-                           
                     <a href="#about">About</a>
+                    <a href="#experience">Experience</a>
                     <a href="#projects">Projects</a>
                     <a href="#certificates">Certificates</a>
                     <a href="#contact">Contact</a>
