@@ -43,6 +43,7 @@
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#certificates" class="nav-link">Certificates</a></li>
+                <li><a href="#achievements" class="nav-link">Achievements</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="nav-actions">
@@ -122,7 +123,7 @@
                     <div class="profile-card-wrapper">
                         <div class="profile-ring-glow"></div>
                         <div class="profile-frame">
-                            <img src="images/1728108642903.jpg" alt="Boppudi Santhosh Profile Photo" class="profile-photo">
+                            <img src="images/me.jpg" alt="Boppudi Santhosh Profile Photo" class="profile-photo">
                         </div>
                         <!-- Floating Tech Skill Badges -->
                         <div class="floating-badge badge-top-right">
@@ -496,6 +497,7 @@
                 <!-- Project Filter -->
                 <div class="project-filter">
                     <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="hackathon"><i class="fas fa-trophy"></i> Hackathon</button>
                     <button class="filter-btn" data-filter="web">Web Development</button>
                     <button class="filter-btn" data-filter="ai">AI/ML</button>
                     <button class="filter-btn" data-filter="fullstack">Full Stack</button>
@@ -503,13 +505,43 @@
                 </div>
             </div>
             <div class="projects-grid">
-                <div class="project-card" data-category="fullstack" data-aos="fade-up" data-aos-delay="100">
+                <!-- Hackathon Project Card -->
+                <div class="project-card clickable-card" data-category="hackathon ai fullstack web" data-modal="warehouseiq-modal" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-header">
+                        <h3>WarehouseIQ (StackFlow)</h3>
+                        <div class="project-status">Hackathon</div>
+                    </div>
+                    <p class="project-description">
+                        An intelligent warehouse &amp; inventory management platform built for a hackathon hosted by Work Wizards Innovations x Hack2Skill x Google for Developers. Click to view full details.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">AI/ML</span>
+                        <span class="tech-tag">Tailwind</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Santhosh-1218/stackflow" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="https://stackflow1218.vercel.app/login" target="_blank" class="project-link">
+                            <i class="fas fa-globe"></i> Website
+                        </a>
+                        <a href="https://lnkd.in/p/dqdCzEvS" target="_blank" class="project-link">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card clickable-card" data-category="fullstack" data-modal="sms-modal" data-aos="fade-up" data-aos-delay="150">
                     <div class="project-header">
                         <h3>Student Management System</h3>
                         <div class="project-status">Completed</div>
                     </div>
                     <p class="project-description">
-                        A full-stack system to manage student data with authentication and Excel storage.
+                        A full-stack web application built with Python, Flask, Firebase Authentication, and automated Excel data storage via OpenPyXL. Click to view full details.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">Python</span>
@@ -528,16 +560,15 @@
                             <i class="fas fa-globe"></i>
                             Website
                         </a>
-                       
                     </div>
                 </div>
-                <div class="project-card" data-category="app" data-aos="fade-up" data-aos-delay="150">
+                <div class="project-card clickable-card" data-category="app" data-modal="calculator-modal" data-aos="fade-up" data-aos-delay="150">
                     <div class="project-header">
                         <h3>Calculator App</h3>
                         <div class="project-status">Completed</div>
                     </div>
                     <p class="project-description">
-                        A simple and user-friendly calculator app built for Android using Kotlin and XML layouts.
+                        A simple, clean, and user-friendly native Android calculator application built using Kotlin and XML layouts in Android Studio. Click to view full details.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">Kotlin</span>
@@ -555,37 +586,35 @@
                         </a>
                     </div>
                 </div>
-                <div class="project-card" data-category="ai" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-card clickable-card" data-category="ai" data-modal="chatbot-modal" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-header">
                         <h3>AI ChatBot</h3>
                         <div class="project-status">Completed</div>
                     </div>
                     <p class="project-description">
-                        An AI-powered chatbot for smart conversations and task automation.
+                        An AI-powered chatbot for smart conversations, query handling, and task automation. Click to view full details.
                     </p>
                     <div class="project-tech">
-                        <span class="tech-tag">Python <br> Flask</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Flask</span>
                         <span class="tech-tag">NLP</span>
-                        <span class="tech-tag">HTML</span>
-                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">MongoDB</span>
                         <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">Mongodb</span>
                     </div>
                     <div class="project-links">
                         <a href="https://github.com/Santhosh-1218/AI-CHAT-BOT" target="_blank" class="project-link">
                             <i class="fab fa-github"></i>
                             GitHub
                         </a>
-                        
                     </div>
                 </div>
-                <div class="project-card" data-category="web" data-aos="fade-up" data-aos-delay="300">
+                <div class="project-card clickable-card" data-category="web" data-modal="feelyourtrip-modal" data-aos="fade-up" data-aos-delay="300">
                     <div class="project-header">
                         <h3>Feel Your Trip Website</h3>
                         <div class="project-status">Completed</div>
                     </div>
                     <p class="project-description">
-                        A travel website with destinations, trip planning, and booking interface.
+                        A travel website featuring destination discovery, trip planning, and booking interface. Click to view full details.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">HTML</span>
@@ -603,13 +632,13 @@
                         </a>
                     </div>
                 </div>
-                <div class="project-card" data-category="web" data-aos="fade-up" data-aos-delay="400">
+                <div class="project-card clickable-card" data-category="web" data-modal="portfolio-modal" data-aos="fade-up" data-aos-delay="400">
                     <div class="project-header">
                         <h3>Portfolio Website</h3>
                         <div class="project-status">Completed</div>
                     </div>
                     <p class="project-description">
-                        Personal portfolio to showcase skills, projects, and achievements.
+                        Personal portfolio website to showcase skills, projects, certifications, and achievements. Click to view full details.
                     </p>
                     <div class="project-tech">
                         <span class="tech-tag">HTML</span>
@@ -642,24 +671,148 @@
 
             <!-- Certificates Grid -->
             <div class="certificates-grid">
-                <!-- Certificate Card -->
-                <div class="certificate-card" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="/images/python certificate.jpg" alt="Python Certificate" class="certificate-img">
+                <!-- Certificate Card 1: Data Structures in Python (Sep 2026) -->
+                <div class="certificate-card" data-aos="zoom-in" data-aos-delay="150">
+                    <div class="certificate-img-wrapper" data-lightbox="images/DSA-python.png" data-caption="Data Structures in Python - Issued Sep 2026 by Google (Coursera) | Credential ID: C0VFIEBHYA48">
+                        <img src="images/DSA-python.png" alt="Data Structures in Python Certificate" class="certificate-img" loading="lazy">
+                        <div class="img-overlay-caption"><i class="fas fa-search-plus"></i> View Certificate</div>
+                    </div>
                     
-                    <h3>Coursera Python Certificate</h3>
-                    <p class="certificate-date">Issued: July 2024</p>
+                    <h3>Data Structures in Python</h3>
+                    <p class="certificate-date">Issued: Sep 2026</p>
                     
-                    <p class="certificate-issuer">Issuer: Coursera</p>
+                    <p class="certificate-issuer">Issuer: Google (Coursera)</p>
                     <p class="certificate-guide">
-                        <strong>How to apply:</strong> Enroll in the 
-                        <a href="https://www.coursera.org/learn/python" target="_blank">"Python for Everybody"</a> course,
-                        complete all modules and assessments, and pass the final exam to earn your certificate.
+                        <strong>Credential ID:</strong> C0VFIEBHYA48<br>
+                        Advanced Data Structures &amp; Algorithms implementation in Python, efficiency analysis, and problem-solving techniques certified by Google.
                     </p>
 
-                    <a href="https://coursera.org/verify/YV3Q04X6DQLU" target="_blank" class="certificate-link">
+                    <a href="https://www.coursera.org/account/accomplishments/verify/C0VFIEBHYA48" target="_blank" rel="noopener noreferrer" class="certificate-link">
                         <i class="fas fa-external-link-alt"></i> Verify Certificate
                     </a>
                 </div>
+
+                <!-- Certificate Card 2: Crash Course on Python (Feb 2025) -->
+                <div class="certificate-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="certificate-img-wrapper" data-lightbox="images/python certificate.jpg" data-caption="Crash Course on Python - Issued Feb 2025 by Google (Coursera) | Credential ID: YV3Q04X6DQLU">
+                        <img src="images/python certificate.jpg" alt="Crash Course on Python Certificate" class="certificate-img" loading="lazy">
+                        <div class="img-overlay-caption"><i class="fas fa-search-plus"></i> View Certificate</div>
+                    </div>
+                    
+                    <h3>Crash Course on Python</h3>
+                    <p class="certificate-date">Issued: Feb 2025</p>
+                    
+                    <p class="certificate-issuer">Issuer: Google (Coursera)</p>
+                    <p class="certificate-guide">
+                        <strong>Credential ID:</strong> YV3Q04X6DQLU<br>
+                        Foundational mastery of Python programming syntax, data structures, automation scripts, and object-oriented concepts certified by Google.
+                    </p>
+
+                    <a href="https://www.coursera.org/account/accomplishments/verify/YV3Q04X6DQLU" target="_blank" rel="noopener noreferrer" class="certificate-link">
+                        <i class="fas fa-external-link-alt"></i> Verify Certificate
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements & Awards Section -->
+    <section class="achievements" id="achievements">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Achievements &amp; Awards</h2>
+                <p class="section-subtitle">Academic excellence honors and competitive hackathon milestones</p>
+            </div>
+
+            <!-- Achievements Grid -->
+            <div class="achievements-grid">
+                
+                <!-- Achievement Card 1: 50 Days of LeetCode -->
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="achievement-badge-wrapper">
+                        <span class="achievement-badge leetcode"><i class="fas fa-code"></i> DSA Milestone</span>
+                        <span class="achievement-date"><i class="far fa-calendar-alt"></i> 50 Days Badge 2026</span>
+                    </div>
+
+                    <h3 class="achievement-title">50 Days of LeetCode — DSA Milestone</h3>
+                    <p class="achievement-institution"><i class="fas fa-terminal"></i> LeetCode Competitive Coding</p>
+                    
+                    <p class="achievement-description">
+                        Earned the official <strong>50 Days Badge 2026</strong> on LeetCode! Achieved through consistent daily problem-solving in Data Structures &amp; Algorithms with <strong>87+ problems solved</strong>, a <strong>27-day max streak</strong>, <strong>51 active days</strong>, and <strong>293+ total submissions</strong>.
+                    </p>
+
+                    <!-- Image Gallery for LeetCode (2 images) -->
+                    <div class="achievement-gallery-grid cols-2">
+                        <div class="achievement-img-wrapper" data-lightbox="images/leecode1.png" data-caption="LeetCode 50 Days Badge 2026 Milestone Award">
+                            <img src="images/leecode1.png" alt="LeetCode 50 Days Badge 2026" class="achievement-img" loading="lazy">
+                            <div class="img-overlay-caption"><i class="fas fa-search-plus"></i> 50 Days Badge</div>
+                        </div>
+                        <div class="achievement-img-wrapper" data-lightbox="images/leetcode2.png" data-caption="LeetCode Submission Heatmap &amp; Solved Problem Stats">
+                            <img src="images/leetcode2.png" alt="LeetCode Statistics and Heatmap" class="achievement-img" loading="lazy">
+                            <div class="img-overlay-caption"><i class="fas fa-search-plus"></i> Stats &amp; Heatmap</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievement Card 2: Prompt War Hackathon -->
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="achievement-badge-wrapper">
+                        <span class="achievement-badge trophy"><i class="fas fa-trophy"></i> 3rd Prize Winner</span>
+                        <span class="achievement-date"><i class="far fa-calendar-alt"></i> August 18, 2026</span>
+                    </div>
+
+                    <h3 class="achievement-title">3rd Place Winner - Prompt War Hackathon</h3>
+                    <p class="achievement-institution"><i class="fas fa-brain"></i> Prompt War AI Competition</p>
+                    
+                    <p class="achievement-description">
+                        Secured <strong>3rd Prize</strong> in the Prompt War Hackathon competition! Recognized for engineering creative, structured AI prompts, automating generative AI workflows, and rapid problem-solving under competitive constraints.
+                    </p>
+
+                    <!-- Image Gallery for Hackathon (3 images) -->
+                    <div class="achievement-gallery-grid cols-3">
+                        <div class="achievement-img-wrapper" data-lightbox="images/hackthon1.jpg" data-caption="Prompt War Hackathon Award Stage (August 18, 2026)">
+                            <img src="images/hackthon1.jpg" alt="Prompt War Hackathon Award Stage" class="achievement-img" loading="lazy">
+                            <div class="img-overlay-caption"><i class="fas fa-search-plus"></i> Stage Award</div>
+                        </div>
+                        <div class="achievement-img-wrapper" data-lightbox="images/hackthon2.jpg" data-caption="Prompt War Hackathon Winners Ceremony (August 18, 2026)">
+                            <img src="images/hackthon2.jpg" alt="Prompt War Hackathon Winners Group Photo" class="achievement-img" loading="lazy">
+                            <div class="img-overlay-caption"><i class="fas fa-search-plus"></i> Winners Ceremony</div>
+                        </div>
+                        <div class="achievement-img-wrapper" data-lightbox="images/hackthon3.jpg" data-caption="Prompt War Hackathon Prize &amp; Certificate (August 18, 2026)">
+                            <img src="images/hackthon3.jpg" alt="Prompt War Prize &amp; Certificate" class="achievement-img" loading="lazy">
+                            <div class="img-overlay-caption"><i class="fas fa-search-plus"></i> Prize &amp; Certificate</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievement Card 3: Academic Topper -->
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="450">
+                    <div class="achievement-badge-wrapper">
+                        <span class="achievement-badge gold"><i class="fas fa-medal"></i> Academic Topper</span>
+                        <span class="achievement-date"><i class="far fa-calendar-alt"></i> March 8, 2025</span>
+                    </div>
+                    
+                    <h3 class="achievement-title">Academic Topper &amp; Gold Medalist (1st Year - 1st Semester)</h3>
+                    <p class="achievement-institution"><i class="fas fa-university"></i> KIET Group of Institutions</p>
+                    
+                    <p class="achievement-description">
+                        Honored with a gold medal and merit certificate on International Women's Day (March 8, 2025) for securing <strong>1st Rank (Academic Topper)</strong> in the 1st Year, 1st Semester of B.Tech CSE (AI &amp; ML). Recognized by college leadership for outstanding scholastic performance.
+                    </p>
+
+                    <!-- Image Gallery for Topper -->
+                    <div class="achievement-gallery-grid cols-2">
+                        <div class="achievement-img-wrapper" data-lightbox="images/topper1.jpg" data-caption="Academic Topper Gold Medal &amp; Certificate (March 8, 2025)">
+                            <img src="images/topper1.jpg" alt="Academic Topper Medal and Certificate" class="achievement-img" loading="lazy">
+                            <div class="img-overlay-caption"><i class="fas fa-search-plus"></i> Medal &amp; Certificate</div>
+                        </div>
+                        <div class="achievement-img-wrapper" data-lightbox="images/topper2.jpg" data-caption="Felicitation Ceremony Group Photo (March 8, 2025)">
+                            <img src="images/topper2.jpg" alt="Award Ceremony Group Photo" class="achievement-img" loading="lazy">
+                            <div class="img-overlay-caption"><i class="fas fa-search-plus"></i> Award Ceremony</div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -716,11 +869,337 @@
                     <a href="#experience">Experience</a>
                     <a href="#projects">Projects</a>
                     <a href="#certificates">Certificates</a>
+                    <a href="#achievements">Achievements</a>
                     <a href="#contact">Contact</a>
                 </div>
             </div>
         </div>
-    </footer>
+    <!-- Project Details Modal Popup -->
+    <div class="modal-overlay" id="warehouseiq-modal" aria-hidden="true">
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close Modal">&times;</button>
+            <div class="modal-header">
+                <div class="modal-badge"><i class="fas fa-trophy"></i> Hackathon Project</div>
+                <h2>WarehouseIQ (StackFlow)</h2>
+                <p class="modal-host"><i class="fas fa-award"></i> Hosted by Work Wizards Innovations x Hack2Skill x Google for Developers</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-wrapper">
+                    <img src="images/stockflow.png" alt="WarehouseIQ Dashboard Screenshot" class="modal-image">
+                </div>
+                <div class="modal-section">
+                    <h3><i class="fas fa-info-circle"></i> Project Overview</h3>
+                    <p>
+                        WarehouseIQ is an intelligent inventory &amp; warehouse management platform designed to solve real-world warehouse operations and order fulfillment challenges. Instead of just displaying data, WarehouseIQ focuses on decision-making — detecting operational problems, determining appropriate actions, executing workflows, and tracking resulting impact.
+                    </p>
+                </div>
+                <div class="modal-section">
+                    <h3><i class="fas fa-list-check"></i> Key Features &amp; Capabilities</h3>
+                    <ul class="modal-features-list">
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Real-time Stock Monitoring:</strong> Instant tracking of inventory and stock allocations.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Smart Order Prioritization:</strong> Automated fulfillment workflows based on order urgency.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Inventory Contention Resolution:</strong> AI analyzes priorities and resolves stock shortages when urgent orders exceed available inventory.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Picking, Packing &amp; Quality Control:</strong> Streamlined QC workflows and dispatch tracking.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Financial &amp; Revenue Intelligence:</strong> Real-time insights into revenue, loss, and profit analytics.</span></li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3><i class="fas fa-code"></i> Technology Stack</h3>
+                    <div class="modal-tech-chips">
+                        <span class="tech-chip"><i class="fab fa-react"></i> React</span>
+                        <span class="tech-chip"><i class="fab fa-python"></i> Python</span>
+                        <span class="tech-chip"><i class="fas fa-bolt"></i> FastAPI</span>
+                        <span class="tech-chip"><i class="fas fa-fire"></i> Firebase</span>
+                        <span class="tech-chip"><i class="fas fa-database"></i> Firestore</span>
+                        <span class="tech-chip"><i class="fas fa-brain"></i> AI / ML</span>
+                        <span class="tech-chip"><i class="fas fa-wind"></i> Tailwind CSS</span>
+                        <span class="tech-chip"><i class="fas fa-network-wired"></i> REST APIs</span>
+                    </div>
+                </div>
+                <div class="modal-footer-links">
+                    <a href="https://stackflow1218.vercel.app/login" target="_blank" rel="noopener noreferrer" class="btn btn-primary modal-btn">
+                        <i class="fas fa-globe"></i> Live Website Demo
+                    </a>
+                    <a href="https://github.com/Santhosh-1218/stackflow" target="_blank" rel="noopener noreferrer" class="btn btn-secondary modal-btn">
+                        <i class="fab fa-github"></i> GitHub Repo
+                    </a>
+                    <a href="https://lnkd.in/p/dqdCzEvS" target="_blank" rel="noopener noreferrer" class="btn btn-outline modal-btn linkedin-btn">
+                        <i class="fab fa-linkedin"></i> LinkedIn Post
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Management System Details Modal Popup -->
+    <div class="modal-overlay" id="sms-modal" aria-hidden="true">
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close Modal">&times;</button>
+            <div class="modal-header">
+                <div class="modal-badge"><i class="fas fa-database"></i> Full-Stack System</div>
+                <h2>Student Management System</h2>
+                <p class="modal-host"><i class="fas fa-code"></i> Built with Python, Flask, Firebase Authentication &amp; OpenPyXL</p>
+            </div>
+            <div class="modal-body">
+                <!-- Dual Image Screenshots -->
+                <div class="modal-gallery-grid">
+                    <div class="modal-gallery-item">
+                        <img src="images/SMS.png" alt="Student Management System Web Interface & Student Form" class="modal-image">
+                    </div>
+                    <div class="modal-gallery-item">
+                        <img src="images/sms2.png" alt="Student Management System Auto-filled Excel Spreadsheet" class="modal-image">
+                    </div>
+                </div>
+                <div class="modal-section">
+                    <h3><i class="fas fa-info-circle"></i> Project Overview</h3>
+                    <p>
+                        A full-stack web application designed to efficiently manage student records. Built with Python and Flask for backend logic, it integrates Firebase Authentication to provide secure user login, registration, and password recovery. Student details filled out on the web interface are automatically written, synchronized, and saved into Excel files using the <code>openpyxl</code> library.
+                    </p>
+                </div>
+                <div class="modal-section">
+                    <h3><i class="fas fa-list-check"></i> Key Features &amp; Workflow</h3>
+                    <ul class="modal-features-list">
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Firebase Authentication:</strong> Secure user registration, login, and password recovery system.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Student Form &amp; Dashboard:</strong> Clean web UI to fill student details, view records, and manage student data.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Automated Excel File Storage:</strong> Real-time automated data writing and updating to Excel spreadsheets via <code>openpyxl</code>.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Persistent &amp; Structured Storage:</strong> Ensures accurate student data management and easy export for institutional use.</span></li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3><i class="fas fa-code"></i> Technology Stack</h3>
+                    <div class="modal-tech-chips">
+                        <span class="tech-chip"><i class="fab fa-python"></i> Python</span>
+                        <span class="tech-chip"><i class="fas fa-flask"></i> Flask</span>
+                        <span class="tech-chip"><i class="fas fa-fire"></i> Firebase Auth</span>
+                        <span class="tech-chip"><i class="fas fa-file-excel"></i> OpenPyXL</span>
+                        <span class="tech-chip"><i class="fab fa-html5"></i> HTML5</span>
+                        <span class="tech-chip"><i class="fab fa-css3-alt"></i> CSS3</span>
+                        <span class="tech-chip"><i class="fab fa-js"></i> JavaScript</span>
+                    </div>
+                </div>
+                <div class="modal-footer-links">
+                    <a href="https://student-management-system-project.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary modal-btn">
+                        <i class="fas fa-globe"></i> Live Website Demo
+                    </a>
+                    <a href="https://github.com/Santhosh-1218/Student-Management-System-Project" target="_blank" rel="noopener noreferrer" class="btn btn-secondary modal-btn">
+                        <i class="fab fa-github"></i> GitHub Repo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calculator App Details Modal Popup -->
+    <div class="modal-overlay" id="calculator-modal" aria-hidden="true">
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close Modal">&times;</button>
+            <div class="modal-header">
+                <div class="modal-badge"><i class="fab fa-android"></i> Android Mobile App</div>
+                <h2>Calculator App (Android)</h2>
+                <p class="modal-host"><i class="fas fa-mobile-alt"></i> Native Android Application • First Mobile Project</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3><i class="fas fa-info-circle"></i> Project Overview</h3>
+                    <p>
+                        A simple, clean, and user-friendly native Android calculator application designed for mobile devices. This was my foundational Android development project, created in Android Studio to practice building interactive user interfaces with XML layouts and writing clean event-driven code in Kotlin.
+                    </p>
+                </div>
+                <div class="modal-section">
+                    <h3><i class="fas fa-list-check"></i> Key Features &amp; Capabilities</h3>
+                    <ul class="modal-features-list">
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Native Mobile UI:</strong> Responsive, modern calculator interface designed using XML layouts in Android Studio.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Essential Arithmetic Operations:</strong> Supports addition (+), subtraction (-), multiplication (&times;), division (&divide;), percentages (%), and decimal calculations.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Real-Time Input Processing:</strong> Kotlin event listeners process button taps instantly with clear screen display updates.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Ready-to-Install APK:</strong> Compiled and bundled into a standalone Android APK file for direct installation on mobile devices.</span></li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3><i class="fas fa-code"></i> Technology Stack</h3>
+                    <div class="modal-tech-chips">
+                        <span class="tech-chip"><i class="fab fa-android"></i> Kotlin</span>
+                        <span class="tech-chip"><i class="fas fa-file-code"></i> XML Layouts</span>
+                        <span class="tech-chip"><i class="fas fa-laptop-code"></i> Android Studio</span>
+                        <span class="tech-chip"><i class="fas fa-mobile-screen-button"></i> Android SDK</span>
+                    </div>
+                </div>
+                <div class="modal-footer-links">
+                    <a href="images/calculator.apk" download class="btn btn-primary modal-btn">
+                        <i class="fas fa-download"></i> Download APK File
+                    </a>
+                    <a href="https://github.com/Santhosh-1218/Calculator-App-Android" target="_blank" rel="noopener noreferrer" class="btn btn-secondary modal-btn">
+                        <i class="fab fa-github"></i> GitHub Repo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Chatbot Details Modal Popup -->
+    <div class="modal-overlay" id="chatbot-modal" aria-hidden="true">
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close Modal">&times;</button>
+            <div class="modal-header">
+                <div class="modal-badge"><i class="fas fa-robot"></i> AI &amp; NLP Solution</div>
+                <h2>All-in-One AI ChatBot</h2>
+                <p class="modal-host"><i class="fas fa-brain"></i> Intelligent Conversational Agent &amp; Task Automation</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3><i class="fas fa-info-circle"></i> Project Overview</h3>
+                    <p>
+                        An intelligent AI-powered chatbot system designed for natural conversational interactions, automated query handling, and intent-driven assistance. Built with Python, Flask, and Natural Language Processing algorithms to process user prompts and deliver real-time intelligent responses.
+                    </p>
+                </div>
+                <div class="modal-section">
+                    <h3><i class="fas fa-list-check"></i> Key Features &amp; Capabilities</h3>
+                    <ul class="modal-features-list">
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Intent &amp; Entity Recognition:</strong> NLP processing pipeline parses user text, extracts key entities, and matches user queries to appropriate response triggers.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Session &amp; Conversation Storage:</strong> Powered by MongoDB to store chat history, user preferences, and session context securely.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Flask Backend API:</strong> High-performance RESTful API endpoints for receiving user messages and streaming dynamic answers back to the UI.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Interactive Web Interface:</strong> Dynamic messaging layout built with modern HTML, CSS, and JS supporting real-time chat bubbles and smooth scrolling.</span></li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3><i class="fas fa-code"></i> Technology Stack</h3>
+                    <div class="modal-tech-chips">
+                        <span class="tech-chip"><i class="fab fa-python"></i> Python</span>
+                        <span class="tech-chip"><i class="fas fa-server"></i> Flask</span>
+                        <span class="tech-chip"><i class="fas fa-brain"></i> NLP</span>
+                        <span class="tech-chip"><i class="fas fa-database"></i> MongoDB</span>
+                        <span class="tech-chip"><i class="fab fa-js"></i> JavaScript</span>
+                    </div>
+                </div>
+                <div class="modal-footer-links">
+                    <a href="https://github.com/Santhosh-1218/AI-CHAT-BOT" target="_blank" rel="noopener noreferrer" class="btn btn-primary modal-btn">
+                        <i class="fab fa-github"></i> View GitHub Repository
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feel Your Trip Details Modal Popup -->
+    <div class="modal-overlay" id="feelyourtrip-modal" aria-hidden="true">
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close Modal">&times;</button>
+            <div class="modal-header">
+                <div class="modal-badge"><i class="fas fa-plane-departure"></i> Travel &amp; Tourism Web App</div>
+                <h2>Feel Your Trip Website</h2>
+                <p class="modal-host"><i class="fas fa-compass"></i> Destination Discovery &amp; Vacation Planning Platform</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3><i class="fas fa-info-circle"></i> Project Overview</h3>
+                    <p>
+                        Feel Your Trip is an engaging travel and tourism web application designed to help users explore travel destinations, discover vacation packages, and plan itineraries. Features clean navigation, beautiful imagery, and responsive destination cards.
+                    </p>
+                </div>
+                <div class="modal-section">
+                    <h3><i class="fas fa-list-check"></i> Key Features &amp; Capabilities</h3>
+                    <ul class="modal-features-list">
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Destination Showcase:</strong> Visually immersive destination cards featuring travel highlights, pricing estimates, and trip details.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Interactive Trip Booking Flow:</strong> Clean UI components enabling users to browse packages, select travel dates, and request custom quotes.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Responsive Glassmorphism Styling:</strong> Fluid mobile and desktop user interface with subtle gradients and sleek typography.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Live Hosted Application:</strong> Deployed live on Netlify for fast global CDN access and instant browser demos.</span></li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3><i class="fas fa-code"></i> Technology Stack</h3>
+                    <div class="modal-tech-chips">
+                        <span class="tech-chip"><i class="fab fa-html5"></i> HTML5</span>
+                        <span class="tech-chip"><i class="fab fa-css3-alt"></i> CSS3</span>
+                        <span class="tech-chip"><i class="fab fa-js"></i> JavaScript</span>
+                        <span class="tech-chip"><i class="fas fa-cloud-upload-alt"></i> Netlify Hosting</span>
+                    </div>
+                </div>
+                <div class="modal-footer-links">
+                    <a href="https://feelyourtrip.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary modal-btn">
+                        <i class="fas fa-globe"></i> Live Website Demo
+                    </a>
+                    <a href="https://github.com/Santhosh-1218/Feel-Your-Trip" target="_blank" rel="noopener noreferrer" class="btn btn-secondary modal-btn">
+                        <i class="fab fa-github"></i> GitHub Repo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Personal Portfolio Details Modal Popup -->
+    <div class="modal-overlay" id="portfolio-modal" aria-hidden="true">
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close Modal">&times;</button>
+            <div class="modal-header">
+                <div class="modal-badge"><i class="fas fa-user-astronaut"></i> Personal Brand &amp; Showcase</div>
+                <h2>Personal Portfolio Website</h2>
+                <p class="modal-host"><i class="fas fa-globe"></i> Responsive Developer Portfolio &amp; Project Hub</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3><i class="fas fa-info-circle"></i> Project Overview</h3>
+                    <p>
+                        My official developer portfolio website engineered to showcase software projects, hackathon achievements, certifications, skills, and background. Features dynamic filtering, interactive modals, dark mode styling, particle animations, and seamless mobile responsiveness.
+                    </p>
+                </div>
+                <div class="modal-section">
+                    <h3><i class="fas fa-list-check"></i> Key Features &amp; Capabilities</h3>
+                    <ul class="modal-features-list">
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Dynamic Category Filtering:</strong> Instant filtering across Hackathon, AI, Full-Stack, Web, and Mobile app projects.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Interactive Detail Modals:</strong> Smooth popup dialogs for each project card with scroll locking and deep architectural descriptions.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Rich Visual Effects:</strong> Particle canvas effects, floating cursor trail, AOS scroll animation triggers, and glassmorphism styling.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Live Netlify Deployment:</strong> Deployed live on Netlify continuous deployment pipeline.</span></li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3><i class="fas fa-code"></i> Technology Stack</h3>
+                    <div class="modal-tech-chips">
+                        <span class="tech-chip"><i class="fab fa-html5"></i> HTML5</span>
+                        <span class="tech-chip"><i class="fab fa-css3-alt"></i> CSS3</span>
+                        <span class="tech-chip"><i class="fab fa-js"></i> JavaScript</span>
+                        <span class="tech-chip"><i class="fas fa-magic"></i> AOS Scroll Animations</span>
+                    </div>
+                </div>
+                <div class="modal-footer-links">
+                    <a href="https://boppudisanthosh.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary modal-btn">
+                        <i class="fas fa-globe"></i> Live Website
+                    </a>
+                    <a href="https://github.com/Santhosh-1218/Personal-Portfolio-Website" target="_blank" rel="noopener noreferrer" class="btn btn-secondary modal-btn">
+                        <i class="fab fa-github"></i> GitHub Repo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Achievement Image Instagram-Style Lightbox Slider Modal -->
+    <div class="modal-overlay" id="achievement-image-modal" aria-hidden="true">
+        <div class="modal-container insta-slider-container">
+            <button class="modal-close" id="insta-slider-close" aria-label="Close Lightbox">&times;</button>
+            
+            <div class="insta-slider-header">
+                <span class="insta-slider-counter" id="insta-slider-counter">1 / 1</span>
+            </div>
+
+            <div class="insta-slider-viewport">
+                <button class="insta-nav-btn prev" id="insta-prev-btn" aria-label="Previous Slide">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="insta-slide-content">
+                    <img id="insta-slider-img" src="" alt="Achievement Full View">
+                </div>
+
+                <button class="insta-nav-btn next" id="insta-next-btn" aria-label="Next Slide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="insta-slider-footer">
+                <div class="insta-slider-dots" id="insta-slider-dots"></div>
+                <p class="insta-slider-caption" id="insta-slider-caption-text"></p>
+            </div>
+        </div>
+    </div>
 
     <!-- Cursor Trail -->
     <div class="cursor-trail" id="cursor-trail"></div>
@@ -729,6 +1208,8 @@
     <div class="particles-container" id="particles-container"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="script.js"></script>
 </body>
 

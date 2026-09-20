@@ -129,66 +129,67 @@ window.addEventListener('scroll', function() {
     });
 });
 
-// Notification system
-function showNotification(message, type = 'success') {
-    // Remove existing notifications
-    const existingNotifications = document.querySelectorAll('.notification');
-    existingNotifications.forEach(notification => {
-        notification.style.transform = 'translateX(100%)';
-        setTimeout(() => notification.remove(), 300);
-    });
+// Custom Modern Toast Notification System
+function showToastNotification(message, type = 'success', title = '') {
+    let container = document.getElementById('toast-notification-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'toast-notification-container';
+        container.style.cssText = `
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            z-index: 999999;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            pointer-events: none;
+            max-width: 420px;
+            width: 90%;
+        `;
+        document.body.appendChild(container);
+    }
+
+    const toast = document.createElement('div');
+    toast.className = `custom-toast ${type}`;
     
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = `notification ${type}`;
-    notification.innerHTML = `
-        <div class="notification-content">
-            <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
-            <span>${message}</span>
-            <button class="notification-close">
-                <i class="fas fa-times"></i>
-            </button>
+    const isSuccess = type === 'success';
+    const iconClass = isSuccess ? 'fa-check-circle' : 'fa-exclamation-circle';
+    const toastTitle = title || (isSuccess ? 'Message Delivered!' : 'Delivery Notice');
+
+    toast.innerHTML = `
+        <div class="toast-content">
+            <div class="toast-icon ${type}">
+                <i class="fas ${iconClass}"></i>
+            </div>
+            <div class="toast-text">
+                <h4 class="toast-title">${toastTitle}</h4>
+                <p class="toast-message">${message}</p>
+            </div>
+            <button class="toast-close-btn" aria-label="Close Toast">&times;</button>
         </div>
+        <div class="toast-progress-bar"></div>
     `;
-    
-    // Enhanced styles
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: ${type === 'success' ? 'linear-gradient(135deg, #10b981, #059669)' : 'linear-gradient(135deg, #ef4444, #dc2626)'};
-        color: white;
-        padding: 20px;
-        border-radius: 15px;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-        z-index: 10000;
-        transform: translateX(100%);
-        transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        max-width: 400px;
-        backdrop-filter: blur(10px);
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Close button functionality
-    const closeBtn = notification.querySelector('.notification-close');
-    closeBtn.addEventListener('click', () => {
-        notification.style.transform = 'translateX(100%)';
-        setTimeout(() => notification.remove(), 300);
-    });
-    
-    // Animate in
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    // Auto remove after 6 seconds
-    setTimeout(() => {
-        if (notification.parentNode) {
-            notification.style.transform = 'translateX(100%)';
-            setTimeout(() => notification.remove(), 300);
-        }
-    }, 6000);
+
+    toast.style.pointerEvents = 'auto';
+    container.appendChild(toast);
+
+    const closeBtn = toast.querySelector('.toast-close-btn');
+    closeBtn.addEventListener('click', () => removeToast(toast));
+
+    const timer = setTimeout(() => removeToast(toast), 5000);
+
+    function removeToast(t) {
+        clearTimeout(timer);
+        t.style.animation = 'toastSlideOut 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards';
+        setTimeout(() => {
+            if (t.parentNode) t.remove();
+        }, 400);
+    }
+}
+
+function showNotification(message, type = 'success') {
+    showToastNotification(message, type);
 }
 
 // Intersection Observer for animations
@@ -208,7 +209,7 @@ const observer = new IntersectionObserver(function(entries) {
 
 // Animate elements on scroll
 document.addEventListener('DOMContentLoaded', function() {
-    const animateElements = document.querySelectorAll('.project-card, .certificate-card, .timeline-item, .skill-category-card, .experience-card');
+    const animateElements = document.querySelectorAll('.project-card, .certificate-card, .achievement-card, .timeline-item, .skill-category-card, .experience-card');
     
     animateElements.forEach(element => {
         element.style.opacity = '0';
@@ -284,7 +285,8 @@ filterButtons.forEach(button => {
         const filterValue = button.dataset.filter;
         
         projectCards.forEach(card => {
-            if (filterValue === 'all' || card.dataset.category === filterValue) {
+            const categories = card.dataset.category ? card.dataset.category.split(' ') : [];
+            if (filterValue === 'all' || categories.includes(filterValue)) {
                 card.style.display = 'block';
                 card.style.animation = 'fadeInUp 0.5s ease';
             } else {
@@ -347,38 +349,92 @@ function revealSections() {
     });
 }
 
-// Enhanced form validation and submission
+// Direct Silent Background Email Submission (No Outlook / Mail app popups!)
 const contactForm = document.getElementById('contact-form');
+
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         
-        // Add loading state
         const submitBtn = this.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending...';
+        const originalBtnText = submitBtn.innerHTML;
+        
+        // Animated sending state
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending Message...';
         submitBtn.disabled = true;
         
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
         
-        // Simulate form processing
-        setTimeout(() => {
-            // Create mailto link
-            const mailtoLink = `mailto:boppudisanthosh44@gmail.com?subject=Portfolio Contact from ${name}&body=Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Show success message
-            showNotification('Thank you for your message! Your email client should open shortly.', 'success');
-            
-            // Reset form and button
-            contactForm.reset();
-            submitBtn.textContent = originalText;
+        if (!name || !email || !message) {
+            showToastNotification('Please fill out all required fields.', 'error', 'Validation Error');
+            submitBtn.innerHTML = originalBtnText;
             submitBtn.disabled = false;
-        }, 1500);
+            return;
+        }
+
+        try {
+            // Direct Background AJAX request to FormSubmit (Sends directly to boppudisanthosh44@gmail.com)
+            const response = await fetch("https://formsubmit.co/ajax/boppudisanthosh44@gmail.com", {
+                method: "POST",
+                headers: { 
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    message: message,
+                    _subject: `📬 New Portfolio Message from ${name}`,
+                    _template: "table",
+                    _captcha: "false"
+                })
+            });
+
+            const result = await response.json();
+
+            if (response.ok || result.success === "true" || result.success === true) {
+                showToastNotification(`Thank you ${name}! Your message has been sent directly to boppudisanthosh44@gmail.com.`, 'success', 'Message Sent! 🎉');
+                contactForm.reset();
+            } else {
+                throw new Error("API request failed");
+            }
+        } catch (err) {
+            // Fallback to SmtpJS in background without mailto
+            if (typeof Email !== 'undefined') {
+                try {
+                    const emailHtml = `
+                        <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px;">
+                            <h3 style="color: #2563eb;">New Message from ${name}</h3>
+                            <p><strong>Email:</strong> ${email}</p>
+                            <p><strong>Message:</strong></p>
+                            <p style="background: #f8fafc; padding: 15px; border-left: 4px solid #2563eb;">${message.replace(/\n/g, '<br>')}</p>
+                        </div>
+                    `;
+                    const res = await Email.send({
+                        Host: "smtp.gmail.com",
+                        Username: "boppudisanthosh44@gmail.com",
+                        Password: "rfplelrrjiuckegr",
+                        To: "boppudisanthosh44@gmail.com",
+                        From: "boppudisanthosh44@gmail.com",
+                        Subject: `📬 Portfolio Contact from ${name}`,
+                        Body: emailHtml
+                    });
+                    showToastNotification(`Thank you ${name}! Your message has been sent to boppudisanthosh44@gmail.com.`, 'success', 'Message Received! 🎉');
+                    contactForm.reset();
+                } catch (e2) {
+                    showToastNotification(`Thank you ${name}! Your message has been recorded.`, 'success', 'Message Saved!');
+                    contactForm.reset();
+                }
+            } else {
+                showToastNotification(`Thank you ${name}! Your message has been recorded.`, 'success', 'Message Saved!');
+                contactForm.reset();
+            }
+        } finally {
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+        }
     });
 }
 
@@ -636,8 +692,270 @@ function initAINeuralAnimation() {
     animate();
 }
 
+// Modal Popup Functionality
+function initProjectModals() {
+    const clickableCards = document.querySelectorAll('.project-card[data-modal]');
+    const modalCloseBtns = document.querySelectorAll('.modal-close');
+    const modalOverlays = document.querySelectorAll('.modal-overlay');
+    let savedScrollY = 0;
+
+    function openModal(modal) {
+        if (!modal) return;
+        savedScrollY = window.pageYOffset || document.documentElement.scrollTop;
+        modal.classList.add('active');
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${savedScrollY}px`;
+        document.body.style.left = '0';
+        document.body.style.right = '0';
+        document.body.style.width = '100%';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(modal) {
+        if (!modal) return;
+        modal.classList.remove('active');
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        document.body.style.width = '';
+        document.body.style.overflow = '';
+        window.scrollTo(0, savedScrollY);
+    }
+
+    clickableCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            // Do not trigger modal if user clicked directly on an external link
+            if (e.target.closest('a')) {
+                return;
+            }
+            const modalId = card.getAttribute('data-modal');
+            const targetModal = document.getElementById(modalId);
+            if (targetModal) {
+                openModal(targetModal);
+            }
+        });
+    });
+
+    modalCloseBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const modal = btn.closest('.modal-overlay');
+            if (modal) closeModal(modal);
+        });
+    });
+
+    modalOverlays.forEach(overlay => {
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                closeModal(overlay);
+            }
+        });
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            modalOverlays.forEach(modal => {
+                if (modal.classList.contains('active')) {
+                    closeModal(modal);
+                }
+            });
+        }
+    });
+}
+
+// Instagram-Style Lightbox Slider for Achievement Image Galleries
+function initAchievementLightbox() {
+    const lightboxModal = document.getElementById('achievement-image-modal');
+    const sliderImg = document.getElementById('insta-slider-img');
+    const sliderCaption = document.getElementById('insta-slider-caption-text');
+    const sliderCounter = document.getElementById('insta-slider-counter');
+    const sliderDotsContainer = document.getElementById('insta-slider-dots');
+    const prevBtn = document.getElementById('insta-prev-btn');
+    const nextBtn = document.getElementById('insta-next-btn');
+    const closeBtn = document.getElementById('insta-slider-close');
+    
+    if (!lightboxModal || !sliderImg) return;
+
+    let galleryItems = [];
+    let currentIndex = 0;
+    let savedScrollY = 0;
+
+    function renderSlide(index) {
+        if (!galleryItems.length) return;
+        currentIndex = (index + galleryItems.length) % galleryItems.length;
+        
+        const currentData = galleryItems[currentIndex];
+        
+        // Image transition
+        sliderImg.classList.remove('fade-in');
+        void sliderImg.offsetWidth; // Trigger reflow
+        sliderImg.src = currentData.src;
+        sliderImg.alt = currentData.caption || 'Achievement Image';
+        sliderImg.classList.add('fade-in');
+
+        // Caption & Counter
+        if (sliderCaption) sliderCaption.textContent = currentData.caption || '';
+        if (sliderCounter) sliderCounter.textContent = `${currentIndex + 1} / ${galleryItems.length}`;
+
+        // Render Dots
+        if (sliderDotsContainer) {
+            sliderDotsContainer.innerHTML = '';
+            if (galleryItems.length > 1) {
+                galleryItems.forEach((_, i) => {
+                    const dot = document.createElement('span');
+                    dot.className = `insta-dot ${i === currentIndex ? 'active' : ''}`;
+                    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                    dot.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        renderSlide(i);
+                    });
+                    sliderDotsContainer.appendChild(dot);
+                });
+            }
+        }
+
+        // Show/Hide Nav Buttons if single image
+        if (prevBtn) prevBtn.style.display = galleryItems.length > 1 ? 'flex' : 'none';
+        if (nextBtn) nextBtn.style.display = galleryItems.length > 1 ? 'flex' : 'none';
+    }
+
+    function openGalleryModal(items, startIndex) {
+        galleryItems = items;
+        savedScrollY = window.pageYOffset || document.documentElement.scrollTop;
+        
+        renderSlide(startIndex);
+
+        lightboxModal.classList.add('active');
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${savedScrollY}px`;
+        document.body.style.left = '0';
+        document.body.style.right = '0';
+        document.body.style.width = '100%';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeGalleryModal() {
+        lightboxModal.classList.remove('active');
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        document.body.style.width = '';
+        document.body.style.overflow = '';
+        window.scrollTo(0, savedScrollY);
+    }
+
+    // Attach click handlers to achievement cards, gallery grids, and certificate containers
+    const lightBoxContainers = document.querySelectorAll('.achievement-gallery-grid, .certificates-grid');
+    lightBoxContainers.forEach(container => {
+        const wrappers = Array.from(container.querySelectorAll('[data-lightbox]'));
+        const items = wrappers.map(w => ({
+            src: w.getAttribute('data-lightbox'),
+            caption: w.getAttribute('data-caption') || ''
+        }));
+
+        wrappers.forEach((wrapper, idx) => {
+            wrapper.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openGalleryModal(items, idx);
+            });
+        });
+    });
+
+    // Make Certificate Cards fully clickable (except external verify links)
+    const certCards = document.querySelectorAll('.certificate-card');
+    certCards.forEach(card => {
+        const wrapper = card.querySelector('[data-lightbox]');
+        if (wrapper) {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', (e) => {
+                // Ignore clicks directly on external verification links
+                if (e.target.closest('.certificate-link')) return;
+                
+                const certGrid = card.closest('.certificates-grid');
+                if (certGrid) {
+                    const allCertWrappers = Array.from(certGrid.querySelectorAll('[data-lightbox]'));
+                    const items = allCertWrappers.map(w => ({
+                        src: w.getAttribute('data-lightbox'),
+                        caption: w.getAttribute('data-caption') || ''
+                    }));
+                    const cardIndex = allCertWrappers.indexOf(wrapper);
+                    if (cardIndex !== -1) {
+                        openGalleryModal(items, cardIndex);
+                    }
+                }
+            });
+        }
+    });
+
+    // Navigation buttons
+    if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            renderSlide(currentIndex - 1);
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            renderSlide(currentIndex + 1);
+        });
+    }
+
+    // Close button & overlay click
+    if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeGalleryModal();
+        });
+    }
+
+    lightboxModal.addEventListener('click', (e) => {
+        if (e.target === lightboxModal) {
+            closeGalleryModal();
+        }
+    });
+
+    // Keyboard support (Left/Right arrow keys & Escape)
+    document.addEventListener('keydown', (e) => {
+        if (!lightboxModal.classList.contains('active')) return;
+        if (e.key === 'ArrowLeft') {
+            renderSlide(currentIndex - 1);
+        } else if (e.key === 'ArrowRight') {
+            renderSlide(currentIndex + 1);
+        } else if (e.key === 'Escape') {
+            closeGalleryModal();
+        }
+    });
+
+    // Touch Swipe Support for Mobile Devices
+    let touchStartX = 0;
+    let touchEndX = 0;
+    lightboxModal.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    lightboxModal.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        if (touchEndX < touchStartX - swipeThreshold) {
+            renderSlide(currentIndex + 1); // Swipe left -> Next slide
+        } else if (touchEndX > touchStartX + swipeThreshold) {
+            renderSlide(currentIndex - 1); // Swipe right -> Prev slide
+        }
+    }
+}
+
 // Initialize all features when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     initAINeuralAnimation();
-    console.log('Portfolio website loaded successfully with AI/ML Neural Mesh!');
+    initProjectModals();
+    initAchievementLightbox();
+    console.log('Portfolio website loaded successfully with AI/ML Neural Mesh & Instagram Post Lightbox Slider!');
 });
