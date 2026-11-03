@@ -2824,6 +2824,18 @@ body.dark-theme .achievement-badge.leetcode {
     color: #fb923c;
 }
 
+.achievement-badge.microsoft {
+    background: linear-gradient(135deg, rgba(0, 120, 212, 0.12), rgba(0, 164, 239, 0.22));
+    color: #0078d4;
+    border: 1px solid rgba(0, 120, 212, 0.35);
+}
+
+body.dark-theme .achievement-badge.microsoft {
+    color: #38bdf8;
+    background: linear-gradient(135deg, rgba(0, 120, 212, 0.2), rgba(56, 189, 248, 0.25));
+    border-color: rgba(56, 189, 248, 0.35);
+}
+
 .achievement-date {
     font-size: 0.88rem;
     color: #64748b;
@@ -2880,6 +2892,39 @@ body.dark-theme .achievement-description {
 
 body.dark-theme .achievement-description strong {
     color: #f1f5f9;
+}
+
+.achievement-highlights-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.achievement-highlights-list li {
+    font-size: 0.88rem;
+    color: #475569;
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    line-height: 1.5;
+}
+
+.achievement-highlights-list li i {
+    color: #0078d4;
+    margin-top: 3px;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+body.dark-theme .achievement-highlights-list li {
+    color: #cbd5e1;
+}
+
+body.dark-theme .achievement-highlights-list li i {
+    color: #38bdf8;
 }
 
 /* Image Gallery Grids */
